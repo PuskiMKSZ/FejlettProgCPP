@@ -9,7 +9,6 @@ public:
     int getY() const;
     void print() const;
     double distanceF(const Point& a, const Point& b);
-    bool isSquare(const Point& a, const Point& b, const Point& c, const Point&
-d);
+    bool isSquare(const Point& a, const Point& b, const Point& c, const Point& d);
 };
 #endif /* PONT_H */
