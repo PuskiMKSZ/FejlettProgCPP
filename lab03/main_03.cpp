@@ -37,6 +37,7 @@ int main(int argc, char** argv) {
     delete pp2;
 
     int n = 2;
+    int n = 2;
     cout<<"Pontok\tMinTav\t MaxTav\t #tavolsagok\t#kulonbozotavolsagok"
     <<endl;
     cout<< fixed;
