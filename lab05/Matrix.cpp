@@ -10,18 +10,17 @@ Matrix::Matrix(int rows, int cols) : mRows(rows), mCols(cols) {
     mElements.resize(mRows * mCols, 0.0);
 }
 
-// 2. Másoló konstruktor (Copy Constructor)
+
 Matrix::Matrix(const Matrix& other)
     : mRows(other.mRows), mCols(other.mCols), mElements(other.mElements) {}
 
-// 3. Áthelyező konstruktor (Move Constructor)
+
 Matrix::Matrix(Matrix&& other) noexcept
     : mRows(other.mRows), mCols(other.mCols), mElements(std::move(other.mElements)) {
     other.mRows = 0;
     other.mCols = 0;
 }
 
-// 4. Másoló értékadás (Copy Assignment)
 Matrix& Matrix::operator=(const Matrix& other) {
     if (this != &other) {
         mRows = other.mRows;
@@ -31,7 +30,6 @@ Matrix& Matrix::operator=(const Matrix& other) {
     return *this;
 }
 
-// 5. Áthelyező értékadás (Move Assignment)
 Matrix& Matrix::operator=(Matrix&& other) noexcept {
     if (this != &other) {
         mRows = other.mRows;
@@ -44,12 +42,12 @@ Matrix& Matrix::operator=(Matrix&& other) noexcept {
     return *this;
 }
 
-// 6. Feltöltő metódus konstans értékkel
+
 void Matrix::fillMatrix(double value) {
     std::fill(mElements.begin(), mElements.end(), value);
 }
 
-// 7. Feltöltő metódus véletlenszerű értékekkel [a, b] intervallumból
+
 void Matrix::randomMatrix(int a, int b) {
     std::random_device rd;
     std::mt19937 gen(rd());
@@ -70,7 +68,7 @@ void Matrix::printMatrix(std::ostream& os) const {
     }
 }
 
-// 9. Összeadás operátor (+)
+
 Matrix operator+(const Matrix& x, const Matrix& y) {
     if (x.mRows != y.mRows || x.mCols != y.mCols) {
         throw std::out_of_range("Az osszeadashoz a matrixok meretenek meg kell egyezniuk!");
@@ -82,7 +80,6 @@ Matrix operator+(const Matrix& x, const Matrix& y) {
     return result;
 }
 
-// 10. Szorzás operátor (*)
 Matrix operator*(const Matrix& x, const Matrix& y) {
     if (x.mCols != y.mRows) {
         throw std::out_of_range("A szorzashoz az elso matrix oszlopainak szama meg kell egyezzen a masodik sorainak szamaval!");
