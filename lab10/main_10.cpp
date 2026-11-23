@@ -14,9 +14,10 @@ int main() {
     dao.enrollStudents("names.txt");
     cout << "Number of enrolled students: " << dao.numEnrolled() << endl;
 
-    for (int i = 0; i < numSubjects; ++i) {
+    for (int i = 0;  i < numSubjects; ++i) {
         dao.readGradesSubject(subjects[i], subjects[i] + ".txt");
     }
+
 
     dao.computeAverage();
     cout << "Number of passed students: " << dao.numPassed() << endl;
