@@ -1,0 +1,31 @@
+//
+// Created by markt on 2026. 11. 23..
+//
+
+#ifndef GRADUATIONDAO_H
+#define GRADUATIONDAO_H
+
+#include "Student.h"
+#include <string>
+#include <map>
+
+using namespace std;
+
+class GraduationDao {
+private:
+    int year{2023};
+    map<int, Student> students;
+
+public:
+    explicit GraduationDao(int year) : year(year) {}
+
+    void enrollStudents(const string &filename);
+    void readGradesSubject(const string &subject, const string &filename);
+    void computeAverage();
+    int numEnrolled() const;
+    int numPassed() const;
+    Student findById(int id) const;
+    double getAverageBySubject(const string &subject) const;
+};
+
+#endif//CPP_2026_GRADUATIONDAO_H
